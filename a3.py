@@ -26,18 +26,26 @@ from typing import List, Tuple, Callable, Any
 def get_title(movie: Tuple[str, str, int, List[str]]) -> str:
     return movie[0]
 
+for movie in movie_db:
+    print(get_title(movie))
 
 def get_director(movie: Tuple[str, str, int, List[str]]) -> str:
     return movie[1]
 
+for movie in movie_db:
+    print(get_director(movie))
 
 def get_year(movie: Tuple[str, str, int, List[str]]) -> int:
     return movie[2]
 
+for movie in movie_db:
+    print(get_year(movie))
 
 def get_actors(movie: Tuple[str, str, int, List[str]]) -> List[str]:
     return movie[3]
 
+for movie in movie_db:
+    print(get_actors(movie))
 
 # Below are a set of actions. Each takes a list argument and returns a list of answers
 # according to the action and the argument. It is important that each function returns a
@@ -262,7 +270,7 @@ if __name__ == "__main__":
             "murray hamilton",
         ]
     ), "failed actors_by_title test"
-    assert sorted(actors_by_title(["movie not in database"])) == []), "failed actors_by_title not in database test"
+    assert sorted(actors_by_title(["movie not in database"])) == [], "failed actors_by_title not in database test"
     assert sorted(year_by_title(["jaws"])) == sorted(
         [1975]
     ), "failed year_by_title test"
