@@ -83,7 +83,12 @@ def title_by_year_range(matches: List[str]) -> List[str]:
         a list of movie titles made during those years, inclusive (meaning if you pass
         in ["1991", "1994"] you will get movies made in 1991, 1992, 1993 & 1994)
     """
-    pass
+    results = []
+    for movie in movie_db:
+        if int(matches[0]) <= get_year(movie) <= int(matches[1]):
+         print(get_title(movie))
+         results.append(get_title(movie))
+    return results
 
 
 def title_before_year(matches: List[str]) -> List[str]:
@@ -170,9 +175,8 @@ def actors_by_title(matches: List[str]) -> List[str]:
     results = []
     for movie in movie_db:
         if matches[0] == get_title(movie):
-         
          print(get_actors(movie))
-         results.append(get_actors(movie))
+         results = (get_actors(movie))
     return results
 
 
@@ -185,7 +189,12 @@ def year_by_title(matches: List[str]) -> List[int]:
     Returns:
         a list of one item (an int), the year that the movie was made
     """
-    pass
+    results = []
+    for movie in movie_db:
+        if matches[0] == get_title(movie):
+         print(get_year(movie))
+         results.append(get_year(movie))
+    return results
 
 
 def title_by_actor(matches: List[str]) -> List[str]:
@@ -197,7 +206,12 @@ def title_by_actor(matches: List[str]) -> List[str]:
     Returns:
         a list of movie titles that the actor acted in
     """
-    pass
+    results = []
+    for movie in movie_db:
+        if matches[0] in get_actors(movie):
+         print(get_title(movie))
+         results.append(get_title(movie))
+    return results
 
 
 # dummy argument is ignored and doesn't matter
@@ -265,21 +279,21 @@ def query_loop() -> None:
 
 if __name__ == "__main__":
     assert isinstance(title_by_year(["1974"]), list), "title_by_year not returning a list"
-    # assert isinstance(title_by_year_range(["1970", "1972"]), list), "title_by_year_range not returning a list"
+    assert isinstance(title_by_year_range(["1970", "1972"]), list), "title_by_year_range not returning a list"
     assert isinstance(title_before_year(["1950"]), list), "title_before_year not returning a list"
     assert isinstance(title_after_year(["1990"]), list), "title_after_year not returning a list"
     assert isinstance(director_by_title(["jaws"]), list), "director_by_title not returning a list"
     assert isinstance(title_by_director(["steven spielberg"]), list), "title_by_director not returning a list"
     assert isinstance(actors_by_title(["jaws"]), list), "actors_by_title not returning a list"
-    # assert isinstance(year_by_title(["jaws"]), list), "year_by_title not returning a list"
-    # assert isinstance(title_by_actor(["orson welles"]), list), "title_by_actor not returning a list"
+    assert isinstance(year_by_title(["jaws"]), list), "year_by_title not returning a list"
+    assert isinstance(title_by_actor(["orson welles"]), list), "title_by_actor not returning a list"
     
     assert sorted(title_by_year(["1974"])) == sorted(
         ["amarcord", "chinatown"]
     ), "failed title_by_year test"
-    # assert sorted(title_by_year_range(["1970", "1972"])) == sorted(
-    #     ["the godfather", "johnny got his gun"]
-    # ), "failed title_by_year_range test"
+    assert sorted(title_by_year_range(["1970", "1972"])) == sorted(
+        ["the godfather", "johnny got his gun"]
+    ), "failed title_by_year_range test"
     assert sorted(title_before_year(["1950"])) == sorted(
         ["casablanca", "citizen kane", "gone with the wind", "metropolis"]
     ), "failed title_before_year test"
@@ -301,13 +315,13 @@ if __name__ == "__main__":
             "murray hamilton",
         ]
     ), "failed actors_by_title test"
-    # assert sorted(actors_by_title(["movie not in database"])) == [], "failed actors_by_title not in database test"
-    # assert sorted(year_by_title(["jaws"])) == sorted(
-    #     [1975]
-    # ), "failed year_by_title test"
-    # assert sorted(title_by_actor(["orson welles"])) == sorted(
-    #     ["citizen kane", "othello"]
-    # ), "failed title_by_actor test"
+    assert sorted(actors_by_title(["movie not in database"])) == [], "failed actors_by_title not in database test"
+    assert sorted(year_by_title(["jaws"])) == sorted(
+        [1975]
+    ), "failed year_by_title test"
+    assert sorted(title_by_actor(["orson welles"])) == sorted(
+        ["citizen kane", "othello"]
+    ), "failed title_by_actor test"
     # assert sorted(search_pa_list(["hi", "there"])) == sorted(
     #     ["I don't understand"]
     # ), "failed search_pa_list test 1"
