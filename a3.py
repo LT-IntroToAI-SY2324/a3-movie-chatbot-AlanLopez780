@@ -250,7 +250,11 @@ def search_pa_list(src: List[str]) -> List[str]:
         a list of answers. Will be ["I don't understand"] if it finds no matches and
         ["No answers"] if it finds a match but no answers
     """
-    pass
+    if match(src) in pa_list:
+       output = match(src)
+       
+    else:
+       return ("I don't understand")
 
 
 def query_loop() -> None:
@@ -322,9 +326,9 @@ if __name__ == "__main__":
     assert sorted(title_by_actor(["orson welles"])) == sorted(
         ["citizen kane", "othello"]
     ), "failed title_by_actor test"
-    # assert sorted(search_pa_list(["hi", "there"])) == sorted(
-    #     ["I don't understand"]
-    # ), "failed search_pa_list test 1"
+    assert sorted(search_pa_list(["hi", "there"])) == sorted(
+        ["I don't understand"]
+    ), "failed search_pa_list test 1"
     # assert sorted(search_pa_list(["who", "directed", "jaws"])) == sorted(
     #     ["steven spielberg"]
     # ), "failed search_pa_list test 2"
