@@ -26,26 +26,26 @@ from typing import List, Tuple, Callable, Any
 def get_title(movie: Tuple[str, str, int, List[str]]) -> str:
     return movie[0]
 
-for movie in movie_db:
-    print(get_title(movie))
+# for movie in movie_db:
+#     print(get_title(movie))
 
 def get_director(movie: Tuple[str, str, int, List[str]]) -> str:
     return movie[1]
 
-for movie in movie_db:
-    print(get_director(movie))
+# for movie in movie_db:
+#     print(get_director(movie))
 
 def get_year(movie: Tuple[str, str, int, List[str]]) -> int:
     return movie[2]
 
-for movie in movie_db:
-    print(get_year(movie))
+# for movie in movie_db:
+#     print(get_year(movie))
 
 def get_actors(movie: Tuple[str, str, int, List[str]]) -> List[str]:
     return movie[3]
 
-for movie in movie_db:
-    print(get_actors(movie))
+# for movie in movie_db:
+#     print(get_actors(movie))
 
 # Below are a set of actions. Each takes a list argument and returns a list of answers
 # according to the action and the argument. It is important that each function returns a
@@ -65,7 +65,7 @@ def title_by_year(matches: List[str]) -> List[str]:
     results = []
     for movie in movie_db:
         if int(matches[0]) == get_year(movie):
-         print(get_title(movie))
+        #  print(get_title(movie))
          results.append(get_title(movie))
     return results
 
@@ -86,7 +86,7 @@ def title_by_year_range(matches: List[str]) -> List[str]:
     results = []
     for movie in movie_db:
         if int(matches[0]) <= get_year(movie) <= int(matches[1]):
-         print(get_title(movie))
+        #  print(get_title(movie))
          results.append(get_title(movie))
     return results
 
@@ -105,7 +105,7 @@ def title_before_year(matches: List[str]) -> List[str]:
     results = []
     for movie in movie_db:
         if int(matches[0]) > get_year(movie):
-         print(get_title(movie))
+        #  print(get_title(movie))
          results.append(get_title(movie))
     return results
 
@@ -124,7 +124,7 @@ def title_after_year(matches: List[str]) -> List[str]:
     results = []
     for movie in movie_db:
         if int(matches[0]) < get_year(movie):
-         print(get_title(movie))
+        #  print(get_title(movie))
          results.append(get_title(movie))
     return results
 
@@ -141,7 +141,7 @@ def director_by_title(matches: List[str]) -> List[str]:
     results = []
     for movie in movie_db:
         if matches[0] == get_title(movie):
-         print(get_director(movie))
+        #  print(get_director(movie))
          results.append(get_director(movie))
     return results
 
@@ -158,7 +158,7 @@ def title_by_director(matches: List[str]) -> List[str]:
     results = []
     for movie in movie_db:
         if matches[0] == get_director(movie):
-         print(get_title(movie))
+        #  print(get_title(movie))
          results.append(get_title(movie))
     return results
 
@@ -175,7 +175,7 @@ def actors_by_title(matches: List[str]) -> List[str]:
     results = []
     for movie in movie_db:
         if matches[0] == get_title(movie):
-         print(get_actors(movie))
+        #  print(get_actors(movie))
          results = (get_actors(movie))
     return results
 
@@ -192,7 +192,7 @@ def year_by_title(matches: List[str]) -> List[int]:
     results = []
     for movie in movie_db:
         if matches[0] == get_title(movie):
-         print(get_year(movie))
+        #  print(get_year(movie))
          results.append(get_year(movie))
     return results
 
@@ -209,7 +209,7 @@ def title_by_actor(matches: List[str]) -> List[str]:
     results = []
     for movie in movie_db:
         if matches[0] in get_actors(movie):
-         print(get_title(movie))
+        #  print(get_title(movie))
          results.append(get_title(movie))
     return results
 
@@ -250,11 +250,9 @@ def search_pa_list(src: List[str]) -> List[str]:
         a list of answers. Will be ["I don't understand"] if it finds no matches and
         ["No answers"] if it finds a match but no answers
     """
-    if match(src) in pa_list:
-       output = match(src)
+    for src in pa_list:
+       if 
        
-    else:
-       return ("I don't understand")
 
 
 def query_loop() -> None:
