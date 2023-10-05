@@ -434,5 +434,35 @@ movie_db: List[Tuple[str, str, int, List[str]]] = [
             "delroy lindo",
             "spike lee",
         ],
+    ),
+    (
+        "the super mario bros movie", 
+        "aaron horvath",  
+        2023,  
+        [
+            "anya taylor-joy",
+            "chris pratt",
+            "jack black",
+            "charlie day",
+            "charles martinet",
+            "seth rogen",
+            "keegan-michael key",
+            "fred armisen",
+        ],  
+    ),
+    (
+        "curious george", 
+        "jeff mcgrath",  
+        2006,  
+        [
+            "will ferrell",
+            "frank welker",
+            "drew barrymore",
+            "david cross",
+            "jeff bennett",
+            "clint howard",
+            "fred tatasciore",
+            "kath soucie",
+        ],  
     )
 ]
